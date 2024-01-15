@@ -21,10 +21,17 @@ function handlerInput(evt) {
 
 form.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  form.reset();
 
-  console.log(formContent);
 
-  localStorage.removeItem(LS_Key);
-  formContent = {};
+  if (email.value.length > 0 && message.value.length > 0) {
+    form.reset();
+
+    console.log(formContent);
+
+    localStorage.removeItem(LS_Key);
+    formContent = {};
+  } else {
+    alert("Please fill in both fields");
+  }
+
 })
